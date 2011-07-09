@@ -1,0 +1,15 @@
+#!/bin/sh
+a=''
+for i in $@
+do
+  if  [ "$a" != '' ]; then
+    a="$a,"'$'$i
+  else
+    a='$'$i
+  fi
+done
+
+/bin/awk -vOFS="\t" '{print '"$a"'}'
+
+exit 0
+
