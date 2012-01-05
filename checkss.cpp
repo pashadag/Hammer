@@ -177,7 +177,7 @@ int main(int argc, char * argv[]) {
 	 */
 	cout << "Number of distinct kmers in the data: " << goodKmers.size() + badKmers.size() << endl;
 	double spec = double(goodKmers.size()) / double(goodKmers.size() + badKmers.size());
-	cout << "Specificity: " << spec << endl;
+	cout << "PPV: " << spec << endl;
 	cout << "Sorting genomicKmers (" << genomicKmers.size() << " elements)...\n";
 	sort(genomicKmers.begin(), genomicKmers.end());
 	genomicKmers.resize(unique(genomicKmers.begin(), genomicKmers.end()) - genomicKmers.begin());

@@ -306,11 +306,11 @@ print CMDFILE "wait\n";
 close(CMDFILE);
 execCommand("cat cmdAnalyze.txt | sh");
 
-execCommand("cat centerCounts.* | awk '{ if (\$1 == 0) print \$2 }' | sumit | awk '{ print \"0\\t\" \$1 }' >> centerCounts");
-execCommand("cat centerCounts.* | awk '{ if (\$1 == 1) print \$2 }' | sumit | awk '{ print \"1\\t\" \$1 }' >> centerCounts");
-execCommand("cat centerCounts.* | grep -v mbig | grep -v ingle | awk '{ if (\$1 == 2) print \$2 }' | sumit | awk '{ print \"2\\t\" \$1 }' >> centerCounts");
-execCommand("cat centerCounts.* | grep -v mbig | grep -v ingle | awk '{ if (\$1 == 3) print \$2 }' | sumit | awk '{ print \"3\\t\" \$1 }' >> centerCounts");
-execCommand("cat centerCounts.* | grep -v mbig | grep -v ingle | awk '{ if (\$1 == 4) print \$2 }' | sumit | awk '{ print \"4\\t\" \$1 }' >> centerCounts");
+execCommand("cat centerCounts.* | awk '{ if (\$1 == 0) print \$2 }' | $hamdir/sumit | awk '{ print \"0\\t\" \$1 }' >> centerCounts");
+execCommand("cat centerCounts.* | awk '{ if (\$1 == 1) print \$2 }' | $hamdir/sumit | awk '{ print \"1\\t\" \$1 }' >> centerCounts");
+execCommand("cat centerCounts.* | grep -v mbig | grep -v ingle | awk '{ if (\$1 == 2) print \$2 }' | $hamdir/sumit | awk '{ print \"2\\t\" \$1 }' >> centerCounts");
+execCommand("cat centerCounts.* | grep -v mbig | grep -v ingle | awk '{ if (\$1 == 3) print \$2 }' | $hamdir/sumit | awk '{ print \"3\\t\" \$1 }' >> centerCounts");
+execCommand("cat centerCounts.* | grep -v mbig | grep -v ingle | awk '{ if (\$1 == 4) print \$2 }' | $hamdir/sumit | awk '{ print \"4\\t\" \$1 }' >> centerCounts");
 
 #$command = "cat reads.uf.corr.* |  grep -v '^\$' | item 3 4 |  grep -v rem  | multiply 5 > reads.fixed.full5"; execCommand($command);
 
