@@ -127,7 +127,7 @@ close(READMASTERFILE);
 
 
 
-$command = "cat $readFiles | preproc $startTrimVal $endTrimVal $qvoffset raw | grep -v 'N' > $preprocReads";
+$command = "cat $readFiles | $hamdir/preproc $startTrimVal $endTrimVal $qvoffset raw | grep -v 'N' > $preprocReads";
 execCommand($command);
 
 
@@ -144,7 +144,7 @@ if (!(-e $preprocReads)) {
 
 my $filesize = `ls -l $preprocReads | item 5` ;
 chomp $filesize;
-$command = "cat $preprocReads | getmers $kmerval $filesize $meminfull | grep -v 'N' > $kmerfile";
+$command = "cat $preprocReads | $hamdir/getmers $kmerval $filesize $meminfull | grep -v 'N' > $kmerfile";
 execCommand($command);
 
 
@@ -170,7 +170,7 @@ if ($mem != 0) {
 
 open ( CMDFILE, ">cmdSort.txt") or die ("$0 : failed to open cmdSort.txt for output: $!\n");
 for ($i = 0; $i < $tau + 1 ; $i++) {
-	$command = "cat $kmerfile | splinter $i " . ($tau + 1) . " | LC_ALL=C  sort $sortOpt -k1,1 -T . > $base.$i";
+	$command = "cat $kmerfile | $hamdir/splinter $i " . ($tau + 1) . " | LC_ALL=C  sort $sortOpt -k1,1 -T . > $base.$i";
 	print CMDFILE "$command & \n";
 }
 print CMDFILE "wait\n";
